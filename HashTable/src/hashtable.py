@@ -12,7 +12,7 @@ class Hashtable:
         return
 
     def __len__(self):
-        return 0
+        return self._size
 
     def __setitem__(self, obj, val):
         return 0
