@@ -18,7 +18,15 @@ class TestLinkedList(object):
 
     def test_insert_tail(self):
         test_ll, nodes = linked_list_helper(5)
-        assert test_ll.get_tail() is nodes[4]
+        new_node = Node(5)
+        test_ll.insert_tail(new_node)
+        tail_node = test_ll.get_tail()
+        assert tail_node.data == 5
+
+    def test_get_tail(self):
+        test_ll, nodes = linked_list_helper(5)
+        tail_node = test_ll.get_tail()
+        assert tail_node == nodes[4]
 
     def test_is_empty(self):
         test_ll, nodes = linked_list_helper()
@@ -39,10 +47,6 @@ class TestLinkedList(object):
     def test_get_head(self):
         test_ll, nodes = linked_list_helper()
         assert test_ll.get_head() is nodes[0]
-
-    def test_get_tail(self):
-        test_ll, nodes = linked_list_helper(5)
-        assert test_ll.get_tail() is nodes[4]
 
     def test_insert_head(self):
         test_ll, nodes = linked_list_helper()

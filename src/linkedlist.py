@@ -17,7 +17,7 @@ class LinkedList:
             current_node = current_node.nextNode
 
     def get_tail(self):
-        return Node()
+        return self.tail
 
     def get_head(self):
         return self.head.nextNode
@@ -39,9 +39,6 @@ class LinkedList:
         tmp = self.head.nextNode
         self.head.nextNode = new_node
         new_node.next = tmp
-
-    def insert_tail(self, new_node):
-        return Node()
 
     def is_empty(self):
         return True if self.size == 0 else False
