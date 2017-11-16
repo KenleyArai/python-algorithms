@@ -25,21 +25,26 @@ class LinkedList:
     def remove_head(self):
         if self.head.nextNode:
             self.head.nextNode = self.head.nextNode.nextNode
+            self.size -= 1
 
     def remove_data(self, data):
+        self.size -= 1
         return Node()
 
     def insert_tail(self, new_node):
         self.tail.nextNode = new_node
         self.tail = new_node
+        self.size += 1
 
     def remove_tail(self, new_node):
+        self.size -= 1
         return Node()
 
     def insert_head(self, new_node):
         tmp = self.head.nextNode
         self.head.nextNode = new_node
         new_node.next = tmp
+        self.size += 1
 
     def is_empty(self):
         return True if self.size == 0 else False
