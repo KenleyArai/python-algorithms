@@ -23,7 +23,8 @@ class LinkedList:
         return self.head.nextNode
 
     def remove_head(self):
-        return Node()
+        if self.head.nextNode:
+            self.head.nextNode = self.head.nextNode.nextNode
 
     def remove_data(self, data):
         return Node()

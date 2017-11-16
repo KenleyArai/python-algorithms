@@ -72,4 +72,5 @@ class TestLinkedList(object):
 
     def test_remove_head(self):
         test_ll, nodes = linked_list_helper()
+        test_ll.remove_head()
         assert test_ll.get_head().data != nodes[0].data
