@@ -28,8 +28,10 @@ class LinkedList:
             self.size -= 1
 
     def remove_data(self, data):
-        self.size -= 1
-        return Node()
+        for node in self.interate():
+            if node.nextNode and node.nextNode.data == data:
+                node.nextNode = node.nextNode.nextNode
+                self.size -= 1
 
     def insert_tail(self, new_node):
         self.tail.nextNode = new_node
@@ -37,7 +39,6 @@ class LinkedList:
         self.size += 1
 
     def remove_tail(self):
-
         for node in self.interate():
             if node.nextNode == self.tail:
                 self.tail = node
