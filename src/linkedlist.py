@@ -36,9 +36,14 @@ class LinkedList:
         self.tail = new_node
         self.size += 1
 
-    def remove_tail(self, new_node):
-        self.size -= 1
-        return Node()
+    def remove_tail(self):
+
+        for node in self.interate():
+            if node.nextNode == self.tail:
+                self.tail = node
+                self.tail.nextNode = None
+                self.size -= 1
+                break
 
     def insert_head(self, new_node):
         tmp = self.head.nextNode

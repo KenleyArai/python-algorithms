@@ -68,6 +68,7 @@ class TestLinkedList(object):
 
     def test_remove_tail(self):
         test_ll, nodes = linked_list_helper(5)
+        test_ll.remove_tail()
         assert test_ll.get_tail().data != nodes[4].data
 
     def test_remove_head(self):
