@@ -5,6 +5,9 @@ class LinkedList:
     def __init__(self, head_node=None):
         self.head = Node()
         self.head.nextNode = head_node
+
+        self.tail = self.head
+
         self.size = 1 if head_node else 0
 
     def interate(self):
@@ -26,7 +29,8 @@ class LinkedList:
         return Node()
 
     def insert_tail(self, new_node):
-        return Node()
+        self.tail.nextNode = new_node
+        self.tail = new_node
 
     def remove_tail(self, new_node):
         return Node()
