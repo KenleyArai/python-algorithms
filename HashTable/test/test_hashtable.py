@@ -4,15 +4,17 @@ from src.hashtable import Hashtable
 class TestHashTable:
     def test_put(self):
         ht = Hashtable(15)
-        ht[0] = "Panda Bear"
+        ht["a"] = "Panda Bear"
 
-        assert ht._data[0] == "Panda Bear"
+        hash_value = ord("a") % 15
+
+        assert ht._data[hash_value] == "Panda Bear"
 
     def test_get(self):
         ht = Hashtable(15)
-        ht[12] = "Panda Bear"
+        ht["Cake"] = "Panda Bear"
 
-        assert ht[12] == "Panda Bear"
+        assert ht["Cake"] == "Panda Bear"
 
     def test_len(self):
         ht = Hashtable(15)

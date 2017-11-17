@@ -14,10 +14,18 @@ class Hashtable:
     def __len__(self):
         return self._size
 
-    def __setitem__(self, obj, val):
+    def __setitem__(self, key, val):
+        hashed = Hash.hash(key, self._size)
+
+        if self._indexes[hashed] is None:
+            self._indexes[hashed] = key
+            self._data[hashed] = val
+        else:
+            if self._indexes[hashed] == key:
+                self._data[hashed] = val
         return 0
 
-    def __getitem__(self, obj, objtype):
+    def __getitem__(self, obj):
         return 0
 
     def __iter__(self):
