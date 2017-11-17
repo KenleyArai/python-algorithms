@@ -21,11 +21,18 @@ class Hashtable:
             self._indexes[hashed] = key
             self._data[hashed] = val
         else:
-            if self._indexes[hashed] == key:
+            if self._indexes[hashed] == key:  # Checking for collision
                 self._data[hashed] = val
-        return 0
+            else:
+                next_index = self.get_collision_index(hashed, self._size, key)
 
-    def __getitem__(self, obj):
+                if self._indexes == None:
+                    self._indexes[next_index] = key
+                    self._data[next_index] = val
+                else:
+                    self.data[next_index] = val
+
+    def __getitem__(self, key):
         return 0
 
     def __iter__(self):
@@ -33,3 +40,12 @@ class Hashtable:
 
     def __next__(self):
         raise StopIteration
+
+    def get_collision_index(self, hash_value, size, key):
+        next_index = self.rehash(hash_value, self._size)
+        while self._indexes[next_index] != None and self._indexes[next_index] != key:
+            next_index = self.rehash(next_index, self._size)
+        return next_index
+
+    def rehash(self, hash_val):
+        return (hash_val + 1) % self._size
