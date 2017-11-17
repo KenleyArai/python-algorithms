@@ -8,8 +8,17 @@ class Hashtable:
         self._indexes = [None] * size
         self._data = [None] * size
 
-    def __delitem__(self, obj):
-        return
+    def __delitem__(self, key):
+        hashed = Hash.hash(key, self._size)
+
+        if self._indexes[hashed] != key:
+            hashed = self.get_collision_index(hashed, key)
+
+        del self._indexes[hashed]
+        del self._data[hashed]
+
+        self._data[hashed] = None
+        self._indexes[hashed] = None
 
     def __len__(self):
         return self._size
@@ -24,16 +33,19 @@ class Hashtable:
             if self._indexes[hashed] == key:  # Checking for collision
                 self._data[hashed] = val
             else:
-                next_index = self.get_collision_index(hashed, self._size, key)
+                next_index = self.get_collision_index(hashed,  key)
 
                 if self._indexes == None:
                     self._indexes[next_index] = key
                     self._data[next_index] = val
                 else:
-                    self.data[next_index] = val
+                    self._data[next_index] = val
 
     def __getitem__(self, key):
-        return 0
+        hashed = Hash.hash(key, self._size)
+        if self._indexes[hashed] == key:
+            return self._data[hashed]
+        return self._data[self.get_collision_index(hashed, key)]
 
     def __iter__(self):
         return self
@@ -41,10 +53,13 @@ class Hashtable:
     def __next__(self):
         raise StopIteration
 
-    def get_collision_index(self, hash_value, size, key):
-        next_index = self.rehash(hash_value, self._size)
+    def __contains__(self, val):
+        return val in self._data
+
+    def get_collision_index(self, hash_value, key):
+        next_index = self.rehash(hash_value)
         while self._indexes[next_index] != None and self._indexes[next_index] != key:
-            next_index = self.rehash(next_index, self._size)
+            next_index = self.rehash(next_index)
         return next_index
 
     def rehash(self, hash_val):
