@@ -28,7 +28,7 @@ class TestHashTable:
         ht = Hashtable(15)
         ht["a"] = "Panda Bear"
         del ht["a"]
-        assert ht['a'] != "Panda Bear"
+        assert ht["a"] != "Panda Bear"
 
     def test_in(self):
         ht = Hashtable(15)

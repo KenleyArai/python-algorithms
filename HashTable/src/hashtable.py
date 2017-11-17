@@ -8,8 +8,17 @@ class Hashtable:
         self._indexes = [None] * size
         self._data = [None] * size
 
-    def __delitem__(self, obj):
-        return
+    def __delitem__(self, key):
+        hashed = Hash.hash(key, self._size)
+
+        if self._indexes[hashed] != key:
+            hashed = self.get_collision_index(hashed, key)
+
+        del self._indexes[hashed]
+        del self._data[hashed]
+
+        self._data[hashed] = None
+        self._indexes[hashed] = None
 
     def __len__(self):
         return self._size
