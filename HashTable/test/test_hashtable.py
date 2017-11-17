@@ -18,22 +18,22 @@ class TestHashTable:
 
     def test_len(self):
         ht = Hashtable(15)
-        ht[7] = "Holder"
-        ht[2] = "Candy Cane"
-        ht[12] = "Panda Bear"
+        ht["Pie"] = "Holder"
+        ht["Xmas"] = "Candy Cane"
+        ht["Kenley"] = "Panda Bear"
 
-        assert len(ht) == 3
+        assert len(ht) == 15
 
     def test_del(self):
         ht = Hashtable(15)
-        ht[0] = "Panda Bear"
-        del ht[0]
-        assert ht._data[0] != "Panda Bear"
+        ht["a"] = "Panda Bear"
+        del ht["a"]
+        assert ht['a'] != "Panda Bear"
 
     def test_in(self):
         ht = Hashtable(15)
-        ht[7] = "Holder"
-        ht[2] = "Candy Cane"
-        ht[12] = "Panda Bear"
+        ht["Pie"] = "Holder"
+        ht["Xmas"] = "Candy Cane"
+        ht["Kenley"] = "Panda Bear"
 
         assert "Panda Bear" in ht
