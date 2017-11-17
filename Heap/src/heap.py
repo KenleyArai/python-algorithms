@@ -1,2 +1,8 @@
+from src.node import Node
+
+
 class Heap:
-    pass
+
+    def __init__(self, heaptype='min'):
+        self._head = Node()
+        self._type = heaptype
