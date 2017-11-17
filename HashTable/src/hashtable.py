@@ -44,6 +44,9 @@ class Hashtable:
     def __next__(self):
         raise StopIteration
 
+    def __contains__(self, val):
+        return val in self._data
+
     def get_collision_index(self, hash_value, key):
         next_index = self.rehash(hash_value)
         while self._indexes[next_index] != None and self._indexes[next_index] != key:
