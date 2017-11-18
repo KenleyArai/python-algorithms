@@ -21,3 +21,15 @@ class TestNode:
         n1 = Node(10)
         n2 = Node(10)
         assert n1 == n2
+
+    def test_bool(self):
+        n = Node(10)
+        if n:
+            assert True
+        else:
+            assert False and n
+        n = Node()
+        if n:
+            assert False and n
+        else:
+            assert True

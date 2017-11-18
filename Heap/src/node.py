@@ -12,3 +12,6 @@ class Node:
 
     def __eq__(self, other):
         return self._data == other._data
+
+    def __bool__(self):
+        return False if self._data is None else True
