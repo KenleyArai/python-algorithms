@@ -7,10 +7,10 @@ class Heap:
         self._head = Node()
         self._type = heaptype
 
-     def push(self):
+    def push(self, data):
         pass
 
-    def pop(self, data):
+    def pop(self):
         pass
 
     def empty(self):
