@@ -4,10 +4,6 @@ import random
 
 class TestMinHeap:
 
-    def test_init(self):
-        h = Heap()
-        assert h._head._data == None and h._head._left == None and h._head._right == None and h._type == 'min'
-
     def test_push(self):
         h = Heap()
         h.push(10)
@@ -53,4 +49,4 @@ class TestMinHeap:
         h.push(100)
         h.push(11)
 
-        assert h.size == 5
+        assert h.size() == 5
