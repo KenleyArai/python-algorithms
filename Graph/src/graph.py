@@ -1,6 +1,14 @@
+from adj_list import AdjacencyList
+from adj_matrix import AdjacencyMatrix
+
+
 class Graph:
     def __init__(self, graph_type='list'):
-        pass
+        self._type = graph_type
+        self._graph = AdjacencyList() if self._is_list() else AdjacencyMatrix()
+
+    def _is_list(self):
+        return self._type == 'list'
 
     def are_adjacent(self, x, y):
         # tests whether there is an edge from the vertex x to the vertex y;
@@ -31,7 +39,7 @@ class Graph:
         pass
 
     def set_vertex_value(self, x):
-        #     sets the value associated with the vertex x to v.
+        # sets the value associated with the vertex x to v.
         pass
 
     def get_edge_value(self, x, y):
