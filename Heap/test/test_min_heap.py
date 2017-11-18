@@ -11,7 +11,12 @@ class TestMinHeap:
     def test_push(self):
         h = Heap()
         h.push(10)
-        assert h._head._data == 10
+        h.push(13)
+        assert h._data[0] == 10
+        h.push(20)
+        assert h._data[1] == 13
+        h.push(5)
+        assert h._data[0] == 5
 
     def test_pop(self):
         h = Heap()
