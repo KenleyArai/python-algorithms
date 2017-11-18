@@ -19,8 +19,8 @@ class Heap:
         self.heapify(self._size)
         return root_node
 
-    def empty(self):
-        pass
+    def is_empty(self):
+        return self._size == 0
 
     def peek(self):
         return self._data[0]
