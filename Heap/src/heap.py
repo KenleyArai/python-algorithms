@@ -14,7 +14,10 @@ class Heap:
         self.heapify(self._size - 1)
 
     def pop(self):
-        pass
+        root_node = self._data.pop(0)
+        self._size -= 1
+        self.heapify(self._size - 1)
+        return root_node
 
     def empty(self):
         pass
