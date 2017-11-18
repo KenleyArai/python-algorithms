@@ -50,3 +50,15 @@ class TestMinHeap:
         h.push(11)
 
         assert h.size() == 5
+
+    def test_merge(self):
+        h1 = Heap()
+        h1.push(1)
+
+        h2 = Heap()
+        h2.push(2)
+        h2.push(3)
+
+        h1._merge(h2)
+
+        assert h1._data == [1, 2, float('inf'), 3]

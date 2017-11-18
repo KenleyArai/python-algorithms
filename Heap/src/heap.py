@@ -42,3 +42,11 @@ class Heap:
         if self._type == 'min':
             return self._data[index] < self._data[index // 2]
         return self._data[index] > self._data[index // 2]
+
+    def _merge(self, other):
+        other_data = other._data[:-1]
+
+        for data in other_data:
+            self.push(data)
+
+        return self._data
