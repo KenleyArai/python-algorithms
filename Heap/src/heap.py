@@ -23,7 +23,7 @@ class Heap:
         pass
 
     def peek(self):
-        pass
+        return self._data[0]
 
     def size(self):
         pass
