@@ -9,6 +9,8 @@ class TestAdjList:
         G.add_vertex('B')
         G.add_edge('A', 'B')
 
+        assert G._graph._list == {'A': {'B': 1}, 'B': {}}
+        G.add_edge('B', 'A')
         assert G._graph._list == {'A': {'B': 1}, 'B': {'A': 1}}
 
     def test_add_vertex(self):

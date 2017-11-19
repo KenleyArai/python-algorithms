@@ -21,7 +21,9 @@ class AdjacencyList:
 
     def add_edge(self, x, y):
         # adds the edge from the vertex x to the vertex y, if it is not there;
-        pass
+        if x in self._list.keys() and y in self._list.keys():
+            if y not in self._list[x].keys():
+                self._list[x].setdefault(y, 1)
 
     def remove_edge(self, x, y):
         # removes the edge from the vertex x to the vertex y, if it is there;
