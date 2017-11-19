@@ -14,8 +14,10 @@ class TestAdjList:
     def test_add_vertex(self):
         G = Graph()
         G.add_vertex('A')
-
         assert G._graph._list == {'A': {}}
+        G.add_vertex('B')
+        G.add_vertex('A')
+        assert G._graph._list == {'A': {}, 'B': {}}
 
     def test_are_adjacent(self):
         G = Graph()

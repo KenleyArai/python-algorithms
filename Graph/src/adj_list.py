@@ -12,7 +12,8 @@ class AdjacencyList:
 
     def add_vertex(self, x):
         # adds the vertex x
-        pass
+        if not x in self._list.keys():
+            self._list.setdefault(x, {})
 
     def remove_vertex(self, x):
         # removes the vertex x, if it is there;
