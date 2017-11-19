@@ -11,7 +11,8 @@ class AdjacencyList:
 
     def get_neighbors(self, x):
         # lists all vertices x such that there is an edge from the vertex x to the vertex y;
-        pass
+        if self._in_graph(x):
+            return self._list[x]
 
     def add_vertex(self, x):
         # adds the vertex x

@@ -63,6 +63,6 @@ class TestAdjList:
         G.add_vertex('A')
         G.add_vertex('B')
 
-        G.add_edge('A', 'B')
+        G.add_edge('B', 'A')
 
         assert G.get_neighbors('B') == {'A': 1}
