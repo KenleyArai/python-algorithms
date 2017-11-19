@@ -4,28 +4,61 @@ from src.graph import Graph
 class TestAdjList:
 
     def test_add_edge(self):
-        assert False
+        G = Graph()
+        G.add_vertex('A')
+        G.add_vertex('B')
+        G.add_edge('A', 'B')
+
+        assert G._graph._list == {'A': {'B': 1}, 'B': {'A': 1}}
 
     def test_add_vertex(self):
-        assert False
+        G = Graph()
+        G.add_vertex('A')
+
+        assert G._graph._list == {'A': {}}
 
     def test_are_adjacent(self):
-        assert False
+        G = Graph()
+        G.add_vertex('A')
+        G.add_vertex('B')
+        G.add_edge('A', 'B')
+        G.add_vertex('C')
+
+        assert G.are_adjacent('A', 'B') == True
+        assert G.are_adjacent('A', 'C') == False
 
     def test_get_edge_value(self):
-        assert False
+        G = Graph()
+        G.add_vertex('A')
+        G.add_vertex('B')
+        G.add_edge('A', 'B')
+
+        assert G.get_edge_value('A', 'B') == 1
 
     def test_set_edge_value(self):
-        assert False
+        G = Graph()
+        G.add_vertex('A')
+        G.add_vertex('B')
+        G.add_edge('A', 'B')
+        G.set_edge_value('A', 'B', 3)
 
-    def test_get_vertex_value(self):
-        assert False
-
-    def test_set_vertex_value(self):
-        assert False
+        assert G._graph._list == {'A': {'B': 3}, 'B': {'A': 3}}
 
     def test_remove_vertex(self):
-        assert False
+        G = Graph()
+        G.add_vertex('A')
+        G.add_vertex('B')
+
+        G.add_edge('A', 'B')
+        G.remove_vertex('A')
+
+        assert G._graph._list == {'B': {}}
 
     def test_get_neighbors(self):
-        assert False
+        G = Graph()
+        G.add_vertex('A')
+        G.add_vertex('B')
+
+        G.add_edge('A', 'B')
+
+        assert G.get_neighbors('B') == {'A': 1}

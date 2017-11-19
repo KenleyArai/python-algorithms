@@ -33,18 +33,10 @@ class Graph:
         # removes the edge from the vertex x to the vertex y, if it is there;
         return self._graph.remove_edge(x, y)
 
-    def get_vertex_value(self, x):
-        # returns the value associated with the vertex x;
-        return self._graph.get_vertex_value(x)
-
-    def set_vertex_value(self, x):
-        # sets the value associated with the vertex x to v.
-        return self._graph.set_edge_value(x)
-
     def get_edge_value(self, x, y):
         # returns the value associated with the edge (x, y)
         return self._graph.get_edge_value(x, y)
 
-    def set_edge_value(self, x, y):
+    def set_edge_value(self, x, y, v):
         # sets the value associated with the edge (x, y) to v.
-        return self._graph.set_edge_value(x, y)
+        return self._graph.set_edge_value(x, y, v)

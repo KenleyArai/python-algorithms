@@ -1,6 +1,6 @@
 class AdjacencyList:
     def __init__(self):
-        pass
+        self._list = {}
 
     def are_adjacent(self, x, y):
         # tests whether there is an edge from the vertex x to the vertex y;
@@ -26,18 +26,10 @@ class AdjacencyList:
         # removes the edge from the vertex x to the vertex y, if it is there;
         pass
 
-    def get_vertex_value(self, x):
-        # returns the value associated with the vertex x;
-        pass
-
-    def set_vertex_value(self, x):
-        # sets the value associated with the vertex x to v.
-        pass
-
     def get_edge_value(self, x, y):
         # returns the value associated with the edge (x, y)
         pass
 
-    def set_edge_value(self, x, y):
+    def set_edge_value(self, x, y, v):
         # sets the value associated with the edge (x, y) to v.
         pass

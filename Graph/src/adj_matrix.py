@@ -30,7 +30,7 @@ class AdjacencyMatrix:
         # returns the value associated with the vertex x;
         pass
 
-    def set_vertex_value(self, x):
+    def set_vertex_value(self, x, v):
         # sets the value associated with the vertex x to v.
         pass
 
