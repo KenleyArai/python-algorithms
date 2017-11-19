@@ -2,6 +2,9 @@ class AdjacencyList:
     def __init__(self):
         self._list = {}
 
+    def _in_graph(self, edge):
+        return edge in self._list.keys()
+
     def are_adjacent(self, x, y):
         # tests whether there is an edge from the vertex x to the vertex y;
         pass
@@ -21,7 +24,7 @@ class AdjacencyList:
 
     def add_edge(self, x, y):
         # adds the edge from the vertex x to the vertex y, if it is not there;
-        if x in self._list.keys() and y in self._list.keys():
+        if self._in_graph(x) and self._in_graph(y):
             if y not in self._list[x].keys():
                 self._list[x].setdefault(y, 1)
 
@@ -31,7 +34,9 @@ class AdjacencyList:
 
     def get_edge_value(self, x, y):
         # returns the value associated with the edge (x, y)
-        pass
+        if self._in_graph(x):
+            if y in self._list[x].keys():
+                return self._list[x][y]
 
     def set_edge_value(self, x, y, v):
         # sets the value associated with the edge (x, y) to v.
