@@ -52,7 +52,7 @@ class TestAdjList:
         G = Graph()
         G.add_vertex('A')
         G.add_vertex('B')
-
+        G.add_edge('B', 'A')
         G.add_edge('A', 'B')
         G.remove_vertex('A')
 

@@ -20,7 +20,12 @@ class AdjacencyList:
 
     def remove_vertex(self, x):
         # removes the vertex x, if it is there;
-        pass
+        if self._in_graph(x):
+            del self._list[x]
+
+        for key in self._list:
+            if x in self._list[key]:
+                del self._list[key][x]
 
     def add_edge(self, x, y):
         # adds the edge from the vertex x to the vertex y, if it is not there;
