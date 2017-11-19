@@ -1,5 +1,5 @@
-from adj_list import AdjacencyList
-from adj_matrix import AdjacencyMatrix
+from src.adj_list import AdjacencyList
+from src.adj_matrix import AdjacencyMatrix
 
 
 class Graph:
